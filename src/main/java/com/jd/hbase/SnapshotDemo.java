@@ -16,10 +16,10 @@ public class SnapshotDemo {
     public static void main(String[] args) {
 
         Configuration conf = HBaseConfiguration.create();
-        String hdfsRoot = "hdfs://pandora/"; //
+        String hdfsRoot = "hdfs://xxx/"; //hdfs 的根目录
         conf.set("fs.defaultFS", hdfsRoot);
-        conf.set("hbase.rootdir", hdfsRoot+"hbase");//hfile
-        conf.set("dfs.nameservices", "xxx");
+        conf.set("hbase.rootdir", hdfsRoot+"hbase");
+        conf.set("dfs.nameservices", "xxx");// MR任务所在集群的配置信息
         conf.set("dfs.ha.namenodes.xxx", "nn1,nn2");
         conf.set("dfs.namenode.rpc-address.xxx.nn1", "xxx");
         conf.set("dfs.namenode.rpc-address.xxx.nn2", "xxx");
