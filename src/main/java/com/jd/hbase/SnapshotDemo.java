@@ -38,7 +38,7 @@ public class SnapshotDemo {
                     Text.class,             // mapper output value.
                     job, // The current job to adjust
                     false, // upload HBase jars and jars for any of the configured job classes via the distributed cache (tmpjars)
-                    new Path(hdfsRoot+"tmp/hbase-snapshot") // how many input splits to generate per one region
+                    new Path(hdfsRoot+"tmp/hbase-snapshot") // tmp path
             );
             FileOutputFormat.setOutputPath(job, new Path(hdfsRoot+"tmp/hbase-output/"+snapshot));
             System.exit(job.waitForCompletion(true) ? 0 : 1);
