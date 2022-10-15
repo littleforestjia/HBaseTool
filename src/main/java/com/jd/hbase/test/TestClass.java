@@ -9,6 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class TestClass {
 
+    //重要：单元测试发现，所有大小的int类型数据转化成字节数组后，字节数组长度都是4。
     @Test
     public void test1() {
         int int1 = 1;
@@ -103,6 +104,42 @@ public class TestClass {
             bytes[i] = (byte) (high|low);//高地位做或运算
         }
         return bytes;
+    }
+
+     public enum A {
+
+         HAHA("有"),
+         XIXI("无");
+
+         private String value;
+
+        A(String value) {
+            this.value = value;
+        }
+     }
+
+    @Test
+    public void test5() {
+        A str = A.values()[0];
+        System.out.println(str.value);
+        A str1 = A.values()[2];
+        System.out.println(str1.value);
+    }
+
+
+    @Test
+    public void test6() {
+        int a = 1;
+        long b = 1;
+        double c = 1;
+
+        byte[] bytesa = Bytes.toBytes(a);
+        byte[] bytesb = Bytes.toBytes(b);
+        byte[] bytesc = Bytes.toBytes(c);
+
+        System.out.println(bytesa.length);
+        System.out.println(bytesb.length);
+        System.out.println(bytesc.length);
     }
 }
 
